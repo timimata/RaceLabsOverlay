@@ -1,107 +1,149 @@
-# RaceLabs-Inspired Telemetry Overlay
+# 🏎️ RaceLabs Overlay
 
-## 🎯 Visão Geral
+**Professional iRacing Telemetry Overlay** - Grátis e Open Source
 
-Aplicação WPF de telemetria profissional para iRacing, inspirada no RaceLabs.
-
-### Características Principais
-- **Overlay in-game** transparente e configurável
-- **Widgets modulares** (velocidade, delta, pneus, RPM, etc.)
-- **Comparador de voltas** (ghost lap) em tempo real
-- **Gráficos em tempo real** (ScottPlot ou LiveCharts)
-- **Temas customizáveis** (cores, fontes, opacidade)
-- **Gravação e replay** de sessões
-- **Multi-sim support** (futuro - iRacing first)
+[![Download](https://img.shields.io/badge/Download-Latest-brightgreen?style=for-the-badge)](https://github.com/timimata/RaceLabsOverlay/releases)
+[![Version](https://img.shields.io/badge/Version-0.1.0-blue?style=for-the-badge)]()
+[![License](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)]()
 
 ---
 
-## 🏗️ Arquitetura
+## 📥 Download e Instalação (Super Simples!)
 
-```
-RaceLabsOverlay/
-├── Core/
-│   ├── Telemetry/
-│   │   ├── ITelemetryProvider.cs
-│   │   ├── IRacingProvider.cs
-│   │   └── TelemetryData.cs
-│   ├── Widgets/
-│   │   ├── IWidget.cs
-│   │   ├── WidgetBase.cs
-│   │   └── WidgetManager.cs
-│   └── Themes/
-│       ├── ITheme.cs
-│       └── ThemeManager.cs
-├── Widgets/
-│   ├── Speedometer/
-│   ├── DeltaBar/
-│   ├── TireTemps/
-│   ├── RPMGauge/
-│   ├── LapTimer/
-│   ├── FuelInfo/
-│   └── TrackMap/
-├── UI/
-│   ├── OverlayWindow.xaml
-│   ├── WidgetContainer.cs
-│   └── Configuration/
-└── Services/
-    ├── GhostRecorder.cs
-    ├── SessionManager.cs
-    └── LapComparator.cs
-```
+### Passo 1: Download
+Clica aqui ➡️ **[Download Latest Release](https://github.com/timimata/RaceLabsOverlay/releases/latest)**
+
+Ou vai a: `https://github.com/timimata/RaceLabsOverlay/releases`
+
+### Passo 2: Extrair
+1. Descarrega o ficheiro `RaceLabsOverlay.zip`
+2. Extrai para uma pasta (ex: `C:\RaceLabsOverlay`)
+
+### Passo 3: Executar
+1. Abre a pasta
+2. Clica duplo em `RaceLabsOverlay.exe`
+3. O overlay aparece automaticamente!
+
+### Passo 4: Correr
+1. Abre o iRacing (se ainda não estiver aberto)
+2. Corre uma sessão
+3. Vê os dados em tempo real no overlay!
 
 ---
 
-## 🎨 Widgets Planeados
+## 🎮 Primeiros Passos
 
-| Widget | Descrição | Prioridade |
-|--------|-----------|------------|
-| **Speedometer** | Velocidade digital/analógica | Alta |
-| **DeltaBar** | Diferença para melhor volta (gráfico) | Alta |
-| **TireTemps** | Temperaturas dos 4 pneus | Alta |
-| **RPMGauge** | RPM com shift lights | Alta |
-| **LapTimer** | Tempo atual, última, melhor | Alta |
-| **FuelInfo** | Combustível, consumo, voltas restantes | Média |
-| **TrackMap** | Mapa da pista com posições | Média |
-| **Inputs** | Throttle/Brake/Clutch bars | Média |
-| **Standings** | Posição na corrida | Baixa |
-| **Relative** | Gap para carros à frente/atrás | Baixa |
+### Controles Rápidos
+| Tecla | Ação |
+|-------|------|
+| `Ctrl + Shift + O` | Modo Edição (mover widgets) |
+| `Ctrl + Shift + H` | Toggle Click-Through |
+| `Ctrl + Shift + R` | Gravar Ghost Lap |
 
----
-
-## 🚀 Fases de Desenvolvimento
-
-### Fase 1: Core (2-3 dias)
-- [ ] OverlayWindow sempre no topo
-- [ ] Widget system base
-- [ ] iRacing telemetry provider
-- [ ] Theme engine básico
-
-### Fase 2: Widgets Essenciais (3-4 dias)
-- [ ] Speedometer
-- [ ] DeltaBar
-- [ ] TireTemps
-- [ ] RPMGauge
-- [ ] LapTimer
-
-### Fase 3: Ghost/Comparação (2-3 dias)
-- [ ] Gravação de voltas
-- [ ] Ghost visualization
-- [ ] Delta por sector
-
-### Fase 4: Polish (2 dias)
-- [ ] Config UI
-- [ ] Temas adicionais
-- [ ] Performance optimization
+### Widgets Incluídos
+- 🏎️ **Speedometer** - Velocidade em km/h
+- 📊 **Delta Bar** - Diferença para melhor volta
+- 🌡️ **Tire Temps** - Temperaturas dos 4 pneus
+- 🔧 **RPM Gauge** - RPM com shift lights
+- ⏱️ **Lap Timer** - Tempos de volta
+- ⛽ **Fuel Info** - Combustível e consumo
+- 🎮 **Inputs** - Throttle/Brake/Clutch
+- 🗺️ **Track Map** - Mapa da pista
+- 👻 **Ghost Comparator** - Comparação com ghost
 
 ---
 
-## 📋 Próximos Passos
+## ⚙️ Configuração
 
-1. Criar projeto base
-2. Implementar OverlayWindow
-3. Criar widget system
-4. Implementar widgets essenciais
+### Mover Widgets
+1. Pressiona `Ctrl + Shift + O` (entra modo edição)
+2. Arrasta os widgets para onde quiseres
+3. Pressiona `Ctrl + Shift + O` novamente (salva posições)
+
+### Click-Through
+- **ON**: Clicas no jogo através do overlay (normal)
+- **OFF**: Interages com o overlay (para mover)
+- Toggle: `Ctrl + Shift + H`
+
+### Ghost Racing
+1. Completa uma volta rápida
+2. O ghost grava automaticamente (se for a melhor volta)
+3. Na próxima volta, vês a comparação em tempo real!
 
 ---
 
-*Especificação criada em: 19 Fev 2026*
+## 💻 Requisitos do Sistema
+
+| Requisito | Valor |
+|-----------|-------|
+| **Sistema** | Windows 10/11 (64-bit) |
+| **iRacing** | Instalado e atualizado |
+| **RAM** | 4GB mínimo |
+| **Espaço** | 200MB livres |
+| **.NET Runtime** | ❌ Não precisa! (incluído no .exe) |
+
+---
+
+## 🆘 Problemas Comuns
+
+### "O overlay não aparece"
+- ✅ Verifica se iRacing está a correr
+- ✅ Verifica se não está minimizado
+- ✅ Tenta `Ctrl + Shift + O` para ver se está em modo edição
+
+### "Widgets não atualizam"
+- ✅ Confirma que estás numa sessão (não no menu principal)
+- ✅ Reinicia o overlay
+- ✅ Verifica se o iRacing está em modo janela ou ecrã completo
+
+### "Não consigo clicar no jogo"
+- ✅ Pressiona `Ctrl + Shift + H` para ativar click-through
+
+---
+
+## 🔄 Atualizações
+
+O overlay verifica automaticamente por atualizações quando inicia.
+
+Se houver uma nova versão:
+1. Aparece uma notificação
+2. Clica "Update Now"
+3. Aguarda o download (completa automático!)
+
+---
+
+## 📱 Links Úteis
+
+| Recurso | Link |
+|---------|------|
+| 🌐 **Website** | [timimata.github.io/RaceLabsOverlay](https://timimata.github.io/RaceLabsOverlay) |
+| 📥 **Download** | [Releases](https://github.com/timimata/RaceLabsOverlay/releases) |
+| 🐛 **Reportar Bug** | [Issues](https://github.com/timimata/RaceLabsOverlay/issues) |
+| 💻 **Código Fonte** | [GitHub](https://github.com/timimata/RaceLabsOverlay) |
+
+---
+
+## 📸 Screenshots
+
+*(Screenshots serão adicionados aqui)*
+
+---
+
+## 📝 Notas
+
+- **100% Grátis** - Sem pagamentos, sem anúncios
+- **Open Source** - Código aberto sob licença MIT
+- **Auto-Update** - Atualizações automáticas
+- **Sem Instalação** - Só extrair e correr!
+
+---
+
+## 🏆 Créditos
+
+Criado por **Tiago** com ❤️ para a comunidade de sim racing.
+
+Inspirado no [RaceLabs](https://racelab.app/) mas 100% gratuito e open source!
+
+---
+
+**Divirtam-se nas pistas!** 🏁

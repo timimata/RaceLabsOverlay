@@ -1,141 +1,149 @@
-# 🌐 RaceLabs Overlay Website
+# 🏎️ RaceLabs Overlay
 
-Website oficial da aplicação RaceLabs Overlay.
+**Professional iRacing Telemetry Overlay** - Grátis e Open Source
 
-## 🚀 Deploy no GitHub Pages (GRÁTIS!)
-
-### 1. Ativar GitHub Pages no Repositório
-
-1. Ir ao repositório: https://github.com/timimata/RaceLabsOverlay
-2. Clicar em **Settings**
-3. No menu lateral, clicar em **Pages**
-4. Em "Source", selecionar:
-   - Branch: `main`
-   - Folder: `/ (root)`
-   - OU selecionar `/docs` se movermos para lá
-5. Clicar **Save**
-
-### 2. Opção A: Deploy na pasta /docs (Recomendado)
-
-```bash
-# Mover website para pasta docs
-mkdir -p docs
-cp -r website/* docs/
-
-# Commit e push
-git add docs/
-git commit -m "Add website to docs folder for GitHub Pages"
-git push
-
-# No GitHub Settings > Pages:
-# Source: Deploy from a branch
-# Branch: main /docs folder
-```
-
-### 3. Opção B: Deploy na branch gh-pages
-
-```bash
-# Criar branch orphan para o website
-git checkout --orphan gh-pages
-git rm -rf .
-cp -r website/* .
-git add .
-git commit -m "Initial website commit"
-git push origin gh-pages
-
-# No GitHub Settings > Pages:
-# Source: Deploy from a branch
-# Branch: gh-pages / (root)
-```
-
-### 4. Configurar Domain (Opcional)
-
-Para usar domínio gratuito:
-
-**Opção 1: GitHub Pages (subdomínio gratuito)**
-- URL: `https://timimata.github.io/RaceLabsOverlay`
-- Já funciona automaticamente!
-
-**Opção 2: Netlify (mais rápido)**
-1. Ir a https://www.netlify.com/
-2. Clicar "Add new site" > "Import an existing project"
-3. Selecionar GitHub > Repositório RaceLabsOverlay
-4. Build settings:
-   - Build command: (deixar em branco - é static)
-   - Publish directory: `website`
-5. Deploy!
-
-URL será: `https://racelabs-overlay.netlify.app` (GRÁTIS!)
-
-**Opção 3: Vercel**
-1. Ir a https://vercel.com/
-2. Importar projeto do GitHub
-3. Deploy!
-
-URL será: `https://racelabs-overlay.vercel.app` (GRÁTIS!)
-
-### 5. Verificar Deploy
-
-Após configurar, esperar 1-2 minutos e aceder a:
-```
-https://timimata.github.io/RaceLabsOverlay
-```
-
-Ou ver em **Settings > Pages** o link oficial.
+[![Download](https://img.shields.io/badge/Download-Latest-brightgreen?style=for-the-badge)](https://github.com/timimata/RaceLabsOverlay/releases)
+[![Version](https://img.shields.io/badge/Version-0.1.0-blue?style=for-the-badge)]()
+[![License](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)]()
 
 ---
 
-## 📁 Estrutura do Website
+## 📥 Download e Instalação (Super Simples!)
 
-```
-website/
-├── index.html      # Página principal
-├── style.css       # Estilos
-└── script.js       # Interatividade
-```
+### Passo 1: Download
+Clica aqui ➡️ **[Download Latest Release](https://github.com/timimata/RaceLabsOverlay/releases/latest)**
 
-## 🎨 Características
+Ou vai a: `https://github.com/timimata/RaceLabsOverlay/releases`
 
-- ✅ Design moderno dark theme
-- ✅ Responsivo (mobile-friendly)
-- ✅ Animações suaves
-- ✅ Preview animado dos widgets
-- ✅ SEO otimizado
-- ✅ Performance otimizada
+### Passo 2: Extrair
+1. Descarrega o ficheiro `RaceLabsOverlay.zip`
+2. Extrai para uma pasta (ex: `C:\RaceLabsOverlay`)
 
-## 📝 Customizar
+### Passo 3: Executar
+1. Abre a pasta
+2. Clica duplo em `RaceLabsOverlay.exe`
+3. O overlay aparece automaticamente!
 
-### Alterar cores
-Editar `:root` em `style.css`:
-```css
-:root {
-    --accent-green: #00ff00;  /* Alterar cor principal */
-    --bg-primary: #0a0a0a;    /* Alterar background */
-}
-```
-
-### Alterar conteúdo
-Editar `index.html` diretamente.
-
-### Adicionar páginas
-Criar novos ficheiros HTML e linkar no menu.
+### Passo 4: Correr
+1. Abre o iRacing (se ainda não estiver aberto)
+2. Corre uma sessão
+3. Vê os dados em tempo real no overlay!
 
 ---
 
-## 🆓 Porquê é Grátis?
+## 🎮 Primeiros Passos
 
-| Serviço | Hosting | Domain | SSL |
-|---------|---------|--------|-----|
-| GitHub Pages | ✅ Grátis | ✅ subdomínio .github.io | ✅ Grátis |
-| Netlify | ✅ Grátis | ✅ subdomínio .netlify.app | ✅ Grátis |
-| Vercel | ✅ Grátis | ✅ subdomínio .vercel.app | ✅ Grátis |
+### Controles Rápidos
+| Tecla | Ação |
+|-------|------|
+| `Ctrl + Shift + O` | Modo Edição (mover widgets) |
+| `Ctrl + Shift + H` | Toggle Click-Through |
+| `Ctrl + Shift + R` | Gravar Ghost Lap |
 
-**Tudo 100% GRÁTIS!** 🎉
+### Widgets Incluídos
+- 🏎️ **Speedometer** - Velocidade em km/h
+- 📊 **Delta Bar** - Diferença para melhor volta
+- 🌡️ **Tire Temps** - Temperaturas dos 4 pneus
+- 🔧 **RPM Gauge** - RPM com shift lights
+- ⏱️ **Lap Timer** - Tempos de volta
+- ⛽ **Fuel Info** - Combustível e consumo
+- 🎮 **Inputs** - Throttle/Brake/Clutch
+- 🗺️ **Track Map** - Mapa da pista
+- 👻 **Ghost Comparator** - Comparação com ghost
 
 ---
 
-## 🔗 Links Úteis
+## ⚙️ Configuração
 
-- [GitHub Pages Docs](https://docs.github.com/en/pages)
-- [Netlify](https://www.netlify.com/)
-- [Vercel](https://vercel.com/)
+### Mover Widgets
+1. Pressiona `Ctrl + Shift + O` (entra modo edição)
+2. Arrasta os widgets para onde quiseres
+3. Pressiona `Ctrl + Shift + O` novamente (salva posições)
+
+### Click-Through
+- **ON**: Clicas no jogo através do overlay (normal)
+- **OFF**: Interages com o overlay (para mover)
+- Toggle: `Ctrl + Shift + H`
+
+### Ghost Racing
+1. Completa uma volta rápida
+2. O ghost grava automaticamente (se for a melhor volta)
+3. Na próxima volta, vês a comparação em tempo real!
+
+---
+
+## 💻 Requisitos do Sistema
+
+| Requisito | Valor |
+|-----------|-------|
+| **Sistema** | Windows 10/11 (64-bit) |
+| **iRacing** | Instalado e atualizado |
+| **RAM** | 4GB mínimo |
+| **Espaço** | 200MB livres |
+| **.NET Runtime** | ❌ Não precisa! (incluído no .exe) |
+
+---
+
+## 🆘 Problemas Comuns
+
+### "O overlay não aparece"
+- ✅ Verifica se iRacing está a correr
+- ✅ Verifica se não está minimizado
+- ✅ Tenta `Ctrl + Shift + O` para ver se está em modo edição
+
+### "Widgets não atualizam"
+- ✅ Confirma que estás numa sessão (não no menu principal)
+- ✅ Reinicia o overlay
+- ✅ Verifica se o iRacing está em modo janela ou ecrã completo
+
+### "Não consigo clicar no jogo"
+- ✅ Pressiona `Ctrl + Shift + H` para ativar click-through
+
+---
+
+## 🔄 Atualizações
+
+O overlay verifica automaticamente por atualizações quando inicia.
+
+Se houver uma nova versão:
+1. Aparece uma notificação
+2. Clica "Update Now"
+3. Aguarda o download (completa automático!)
+
+---
+
+## 📱 Links Úteis
+
+| Recurso | Link |
+|---------|------|
+| 🌐 **Website** | [timimata.github.io/RaceLabsOverlay](https://timimata.github.io/RaceLabsOverlay) |
+| 📥 **Download** | [Releases](https://github.com/timimata/RaceLabsOverlay/releases) |
+| 🐛 **Reportar Bug** | [Issues](https://github.com/timimata/RaceLabsOverlay/issues) |
+| 💻 **Código Fonte** | [GitHub](https://github.com/timimata/RaceLabsOverlay) |
+
+---
+
+## 📸 Screenshots
+
+*(Screenshots serão adicionados aqui)*
+
+---
+
+## 📝 Notas
+
+- **100% Grátis** - Sem pagamentos, sem anúncios
+- **Open Source** - Código aberto sob licença MIT
+- **Auto-Update** - Atualizações automáticas
+- **Sem Instalação** - Só extrair e correr!
+
+---
+
+## 🏆 Créditos
+
+Criado por **Tiago** com ❤️ para a comunidade de sim racing.
+
+Inspirado no [RaceLabs](https://racelab.app/) mas 100% gratuito e open source!
+
+---
+
+**Divirtam-se nas pistas!** 🏁
