@@ -134,6 +134,20 @@ namespace RaceLabsOverlay.UI
             // Track Map - direita centro
             var trackMap = new Widgets.TrackMapWidget();
             _widgetManager.AddWidget(trackMap, new Point(Width - 220, Height / 2 - 100));
+            
+            // NOVOS WIDGETS ADICIONADOS
+            
+            // Relative - topo esquerdo (acima do fuel)
+            var relative = new Widgets.RelativeWidget();
+            _widgetManager.AddWidget(relative, new Point(20, 150));
+            
+            // Sector Times - centro esquerda
+            var sectors = new Widgets.SectorTimesWidget();
+            _widgetManager.AddWidget(sectors, new Point(20, Height / 2));
+            
+            // Standings - topo direito (acima do lap timer)
+            var standings = new Widgets.StandingsWidget();
+            _widgetManager.AddWidget(standings, new Point(Width - 200, 150));
         }
 
         private void OverlayWindow_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
