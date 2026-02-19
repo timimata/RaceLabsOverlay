@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RaceLabs Overlay - Professional iRacing Telemetry</title>
+    <meta name="description" content="Professional iRacing telemetry overlay with ghost racing, real-time delta, and customizable widgets.">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏎️</text></svg>">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <span class="logo">🏎️</span>
+                <span class="brand-text">RaceLabs Overlay</span>
+            </div>
+            <div class="nav-links">
+                <a href="#features">Features</a>
+                <a href="#widgets">Widgets</a>
+                <a href="#download">Download</a>
+                <a href="https://github.com/timimata/RaceLabsOverlay" target="_blank" class="github-link">
+                    <svg height="20" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+                    GitHub
+                </a>
+            </div>
+            <button class="mobile-menu-btn">☰</button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="badge">🚀 Version 0.1.0 Now Available</div>
+                <h1>Professional iRacing<br><span class="gradient-text">Telemetry Overlay</span></h1>
+                <p class="hero-description">
+                    RaceLabs Overlay brings professional-grade telemetry visualization to iRacing. 
+                    Real-time delta tracking, ghost racing, customizable widgets, and auto-updates. 
+                    Everything you need to improve your lap times.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#download" class="btn btn-primary">
+                        <span>⬇️</span> Download Free
+                    </a>
+                    <a href="https://github.com/timimata/RaceLabsOverlay" target="_blank" class="btn btn-secondary">
+                        View on GitHub
+                    </a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-value">9</span>
+                        <span class="stat-label">Widgets</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-value">60</span>
+                        <span class="stat-label">Hz Refresh</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-value">100%</span>
+                        <span class="stat-label">Free</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="overlay-preview">
+                    <div class="widget speedometer">
+                        <div class="widget-label">SPEED</div>
+                        <div class="widget-value">245</div>
+                        <div class="widget-unit">km/h</div>
+                    </div>
+                    <div class="widget delta">
+                        <div class="delta-bar"></div>
+                        <div class="delta-value">-0.234</div>
+                    </div>
+                    <div class="widget tires">
+                        <div class="tire lf">LF<br>85°</div>
+                        <div class="tire rf">RF<br>87°</div>
+                        <div class="tire lr">LR<br>82°</div>
+                        <div class="tire rr">RR<br>84°</div>
+                    </div>
+                    <div class="widget rpm">
+                        <div class="rpm-gauge"></div>
+                        <div class="rpm-value">7,250</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <h2 class="section-title">Professional Features</h2>
+            <p class="section-subtitle">Everything you need for competitive sim racing</p>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">👻</div>
+                    <h3>Ghost Racing</h3>
+                    <p>Record your best laps and race against your ghost in real-time. Visual delta shows exactly where you're gaining or losing time.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>60Hz Real-time</h3>
+                    <p>Ultra-smooth 60Hz refresh rate ensures you see every detail of your telemetry data without any lag or stuttering.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎨</div>
+                    <h3>Customizable UI</h3>
+                    <p>Drag and drop widgets anywhere on screen. Edit mode lets you position everything perfectly for your setup.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔄</div>
+                    <h3>Auto-Update</h3>
+                    <p>Always stay up to date with automatic updates. New features and improvements delivered seamlessly.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Click-Through Mode</h3>
+                    <p>Interact with your game while the overlay stays visible. Toggle with a simple hotkey.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Comprehensive Data</h3>
+                    <p>Speed, RPM, tire temps, fuel levels, lap times, delta, inputs, and more. All the data you need in one place.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Widgets Section -->
+    <section id="widgets" class="widgets">
+        <div class="container">
+            <h2 class="section-title">9 Professional Widgets</h2>
+            <p class="section-subtitle">Each widget is designed for maximum readability and performance</p>
+            
+            <div class="widgets-showcase">
+                <div class="widget-item">
+                    <div class="widget-preview speedo">245</div>
+                    <div class="widget-info">
+                        <h4>Speedometer</h4>
+                        <p>Large digital speed display with color-coded alerts for high speeds.</p>
+                    </div>
+                </div>
+                <div class="widget-item">
+                    <div class="widget-preview delta-preview">
+                        <div class="delta-bar-preview"></div>
+                        <span>-0.234</span>
+                    </div>
+                    <div class="widget-info">
+                        <h4>Delta Bar</h4>
+                        <p>Real-time comparison to your best lap with visual bar and numeric delta.</p>
+                    </div>
+                </div>
+                <div class="widget-item">
+                    <div class="widget-preview temps">
+                        <div class="temp-box hot">85°</div>
+                        <div class="temp-box">82°</div>
+                    </div>
+                    <div class="widget-info">
+                        <h4>Tire Temps</h4>
+                        <p>12 temperature readings (inner/middle/outer for all 4 tires) with color coding.</p>
+                    </div>
+                </div>
+                <div class="widget-item">
+                    <div class="widget-preview rpm-preview">
+                        <div class="rpm-arc"></div>
+                        <span>7,250</span>
+                    </div>
+                    <div class="widget-info">
+                        <h4>RPM Gauge</h4>
+                        <p>Animated gauge with shift lights that trigger at configurable RPM.</p>
+                    </div>
+                </div>
+                <div class="widget-item">
+                    <div class="widget-preview lap">
+                        <div class="lap-time">1:23.456</div>
+                        <div class="lap-stats">
+                            <span>Last: 1:24.123</span>
+                            <span>Best: 1:22.890</span>
+                        </div>
+                    </div>
+                    <div class="widget-info">
+                        <h4>Lap Timer</h4>
+                        <p>Current, last, and best lap times with lap number display.</p>
+                    </div>
+                </div>
+                <div class="widget-item">
+                    <div class="widget-preview inputs">
+                        <div class="input-bar throttle" style="width: 80%"></div>
+                        <div class="input-bar brake" style="width: 30%"></div>
+                    </div>
+                    <div class="widget-info">
+                        <h4>Inputs</h4>
+                        <p>Visual bars for throttle, brake, and clutch positions.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Download Section -->
+    <section id="download" class="download">
+        <div class="container">
+            <h2 class="section-title">Download Now</h2>
+            <p class="section-subtitle">Free, open-source, and always improving</p>
+            
+            <div class="download-options">
+                <div class="download-card">
+                    <div class="download-icon">🪟</div>
+                    <h3>Windows</h3>
+                    <p>Windows 10/11 (64-bit)</p>
+                    <a href="https://github.com/timimata/RaceLabsOverlay/releases/latest" class="btn btn-download">
+                        <span>⬇️</span> Download v0.1.0
+                    </a>
+                    <small>.NET 8.0 Runtime Required</small>
+                </div>
+            </div>
+
+            <div class="installation">
+                <h3>Quick Installation</h3>
+                <div class="install-steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <p>Download the latest release</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <p>Extract to any folder</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <p>Run RaceLabsOverlay.exe</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <p>Start iRacing and race!</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="requirements">
+                <h3>System Requirements</h3>
+                <ul>
+                    <li>✅ Windows 10 or 11 (64-bit)</li>
+                    <li>✅ .NET 8.0 Runtime</li>
+                    <li>✅ iRacing installed</li>
+                    <li>✅ 4GB RAM minimum</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="logo">🏎️</span>
+                    <span>RaceLabs Overlay</span>
+                </div>
+                <div class="footer-links">
+                    <a href="https://github.com/timimata/RaceLabsOverlay">GitHub</a>
+                    <a href="https://github.com/timimata/RaceLabsOverlay/issues">Issues</a>
+                    <a href="https://github.com/timimata/RaceLabsOverlay/blob/main/LICENSE">License</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>Made with ❤️ for the sim racing community</p>
+                <p>© 2026 Tiago. Open source under MIT License.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
