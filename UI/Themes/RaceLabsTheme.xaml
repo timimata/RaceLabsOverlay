@@ -1,0 +1,190 @@
+# 🎨 XAML Styles - RaceLabs Theme
+
+## Tema Escuro (Default)
+
+```xml
+<!-- Colors -->
+<Color x:Key="BackgroundDark">#0A0A0A</Color>
+<Color x:Key="BackgroundPanel">#1A1A1A</Color>
+<Color x:Key="TextPrimary">#FFFFFF</Color>
+<Color x:Key="TextSecondary">#888888</Color>
+<Color x:Key="AccentGreen">#00FF00</Color>
+<Color x:Key="AccentRed">#FF0000</Color>
+<Color x:Key="AccentOrange">#FF8800</Color>
+<Color x:Key="AccentBlue">#0088FF</Color>
+
+<!-- Brushes -->
+<SolidColorBrush x:Key="BackgroundDarkBrush" Color="{StaticResource BackgroundDark}">
+<SolidColorBrush x:Key="BackgroundPanelBrush" Color="{StaticResource BackgroundPanel}">
+<SolidColorBrush x:Key="TextPrimaryBrush" Color="{StaticResource TextPrimary}">
+<SolidColorBrush x:Key="TextSecondaryBrush" Color="{StaticResource TextSecondary}">
+<SolidColorBrush x:Key="AccentGreenBrush" Color="{StaticResource AccentGreen}">
+<SolidColorBrush x:Key="AccentRedBrush" Color="{StaticResource AccentRed}">
+
+<!-- Widget Base Style -->
+<Style x:Key="WidgetBaseStyle" TargetType="Border">
+    <Setter Property="Background" Value="{StaticResource BackgroundPanelBrush}">
+    <Setter Property="CornerRadius" Value="8">
+    <Setter Property="BorderBrush" Value="#333333">
+    <Setter Property="BorderThickness" Value="1">
+    <Setter Property="Padding" Value="10">
+    <Setter Property="Opacity" Value="0.95">
+</Style>
+
+<!-- Speedometer Style -->
+<Style x:Key="SpeedometerTextStyle" TargetType="TextBlock">
+    <Setter Property="FontFamily" Value="Segoe UI, Arial">
+    <Setter Property="FontSize" Value="72">
+    <Setter Property="FontWeight" Value="Bold">
+    <Setter Property="Foreground" Value="{StaticResource TextPrimaryBrush}">
+    <Setter Property="Effect">
+        <DropShadowEffect ShadowDepth="2" BlurRadius="4" Color="Black"/>
+    </Setter>
+</Style>
+
+<!-- Delta Bar Style -->
+<Style x:Key="DeltaTextStyle" TargetType="TextBlock">
+    <Setter Property="FontFamily" Value="Consolas, Monospace">
+    <Setter Property="FontSize" Value="32">
+    <Setter Property="FontWeight" Value="Bold">
+    <Setter Property="HorizontalAlignment" Value="Center">
+</Style>
+
+<!-- RPM Gauge Style -->
+<Style x:Key="RPMTextStyle" TargetType="TextBlock">
+    <Setter Property="FontFamily" Value="Segoe UI">
+    <Setter Property="FontSize" Value="48">
+    <Setter Property="FontWeight" Value="Bold">
+    <Setter Property="Foreground" Value="{StaticResource TextPrimaryBrush}">
+</Style>
+
+<!-- Tire Temps Style -->
+<Style x:Key="TireTempTextStyle" TargetType="TextBlock">
+    <Setter Property="FontFamily" Value="Segoe UI">
+    <Setter Property="FontSize" Value="14">
+    <Setter Property="FontWeight" Value="SemiBold">
+    <Setter Property="Foreground" Value="{StaticResource TextPrimaryBrush}">
+</Style>
+```
+
+## Tema Transparente (Overlay)
+
+```xml
+<Style x:Key="WidgetTransparentStyle" TargetType="Border" 
+        BasedOn="{StaticResource WidgetBaseStyle}">
+    <Setter Property="Background" Value="#001A1A1A">  <!-- Quase transparente -->
+    <Setter Property="BorderBrush" Value="#00333333">
+</Style>
+
+<Style x:Key="GlowTextStyle" TargetType="TextBlock">
+    <Setter Property="Effect">
+        <DropShadowEffect ShadowDepth="0" 
+                          BlurRadius="8" 
+                          Color="{StaticResource AccentGreen}"
+                          Opacity="0.8"/>
+    </Setter>
+</Style>
+```
+
+## Animações
+
+```xml
+<!-- Fade In -->
+<Storyboard x:Key="FadeInAnimation">
+    <DoubleAnimation Storyboard.TargetProperty="Opacity"
+                     From="0" To="1" Duration="0:0:0.3"
+                     DecelerationRatio="0.5"/>
+</Storyboard>
+
+<!-- Pulse Effect -->
+<Storyboard x:Key="PulseAnimation" RepeatBehavior="Forever">
+    <DoubleAnimation Storyboard.TargetProperty="Opacity"
+                     From="1" To="0.5" Duration="0:0:0.5"
+                     AutoReverse="True"
+                     AccelerationRatio="0.3"
+                     DecelerationRatio="0.3"/>
+</Storyboard>
+
+<!-- Slide In -->
+<Storyboard x:Key="SlideInAnimation">
+    <DoubleAnimation Storyboard.TargetProperty="RenderTransform.(TranslateTransform.X)"
+                     From="-50" To="0" Duration="0:0:0.3"
+                     DecelerationRatio="0.5"/>
+    <DoubleAnimation Storyboard.TargetProperty="Opacity"
+                     From="0" To="1" Duration="0:0:0.2"/>
+</Storyboard>
+```
+
+## Widget Templates
+
+### Speedometer Template
+```xml
+<ControlTemplate x:Key="SpeedometerTemplate" TargetType="UserControl">
+    <Border Style="{StaticResource WidgetBaseStyle}">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            
+            <TextBlock Text="{Binding Speed, StringFormat={}{0:F0}}"
+                     Style="{StaticResource SpeedometerTextStyle}"
+                     HorizontalAlignment="Center">
+            <TextBlock Text="km/h"
+                     Grid.Row="1"
+                     Style="{StaticResource TextSecondaryStyle}"
+                     HorizontalAlignment="Center"
+                     FontSize="14">
+        </Grid>
+    </Border>
+</ControlTemplate>
+```
+
+### Delta Bar Template
+```xml
+<ControlTemplate x:Key="DeltaBarTemplate" TargetType="UserControl">
+    <Border Style="{StaticResource WidgetBaseStyle}" Width="300" Height="60">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            
+            <!-- Barra de delta -->
+            <Grid Grid.Row="0" Height="20">
+                <Rectangle Fill="#333333"/>
+                
+                <!-- Barra negativa (ahead) -->
+                <Rectangle x:Name="NegativeBar"
+                         HorizontalAlignment="Right"
+                         Fill="LimeGreen"
+                         Width="0"/>
+                
+                <!-- Barra positiva (behind) -->
+                <Rectangle x:Name="PositiveBar"
+                         HorizontalAlignment="Left"
+                         Fill="Red"
+                         Width="0"/>
+                
+                <!-- Marcador central -->
+                <Rectangle x:Name="CenterMarker"
+                         HorizontalAlignment="Center"
+                         Width="2" Fill="White"
+                         Visibility="Collapsed"/>
+            </Grid>
+            
+            <!-- Texto do delta -->
+            <TextBlock x:Name="DeltaText"
+                     Grid.Row="1"
+                     Style="{StaticResource DeltaTextStyle}"
+                     HorizontalAlignment="Center"
+                     Margin="0,5,0,0">
+        </Grid>
+    </Border>
+</ControlTemplate>
+```
+
+---
+
+*Themes criados para RaceLabsOverlay*  
+*Foco: Visual profissional, legível, estilo racing*
