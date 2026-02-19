@@ -113,15 +113,27 @@ namespace RaceLabsOverlay.UI
             
             // Tire Temps - canto inferior esquerdo
             var tires = new Widgets.TireTempsWidget();
-            _widgetManager.AddWidget(tires, new Point(20, Height - 150));
+            _widgetManager.AddWidget(tires, new Point(20, Height - 180));
             
             // RPM Gauge - canto inferior direito
             var rpm = new Widgets.RPMGaugeWidget();
-            _widgetManager.AddWidget(rpm, new Point(Width - 220, Height - 150));
+            _widgetManager.AddWidget(rpm, new Point(Width - 220, Height - 220));
             
             // Lap Timer - topo direito
             var lapTimer = new Widgets.LapTimerWidget();
             _widgetManager.AddWidget(lapTimer, new Point(Width - 250, 20));
+            
+            // Inputs - esquerda centro
+            var inputs = new Widgets.InputsWidget();
+            _widgetManager.AddWidget(inputs, new Point(20, Height / 2 - 100));
+            
+            // Fuel - topo esquerdo
+            var fuel = new Widgets.FuelWidget();
+            _widgetManager.AddWidget(fuel, new Point(20, 20));
+            
+            // Track Map - direita centro
+            var trackMap = new Widgets.TrackMapWidget();
+            _widgetManager.AddWidget(trackMap, new Point(Width - 220, Height / 2 - 100));
         }
 
         private void OverlayWindow_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
