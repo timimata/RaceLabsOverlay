@@ -148,6 +148,10 @@ namespace RaceLabsOverlay.UI
             // Standings - topo direito (acima do lap timer)
             var standings = new Widgets.StandingsWidget();
             _widgetManager.AddWidget(standings, new Point(Width - 200, 150));
+            
+            // Telemetry Graphs - centro baixo
+            var telemetryGraphs = new Widgets.TelemetryGraphWidget();
+            _widgetManager.AddWidget(telemetryGraphs, new Point(Width / 2 - 250, Height - 350));
         }
 
         private void OverlayWindow_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
