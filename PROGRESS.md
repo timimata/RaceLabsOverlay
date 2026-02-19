@@ -8,7 +8,7 @@
 
 ## ✅ Features Implementadas
 
-### Widgets (12 total!)
+### Widgets (13 total!)
 1. ✅ Speedometer - Velocidade digital
 2. ✅ LapTimer - Tempos de volta
 3. ✅ DeltaBar - Diferença para melhor
@@ -18,9 +18,10 @@
 7. ✅ FuelWidget - Combustível
 8. ✅ TrackMap - Mapa da pista
 9. ✅ GhostComparator - Ghost racing
-10. ✅ **RelativeWidget** - Gap para outros carros ⭐ NOVO
-11. ✅ **SectorTimesWidget** - Tempos por setor ⭐ NOVO
-12. ✅ **StandingsWidget** - Posição na corrida ⭐ NOVO
+10. ✅ RelativeWidget - Gap para outros carros
+11. ✅ SectorTimesWidget - Tempos por setor
+12. ✅ StandingsWidget - Posição na corrida
+13. ✅ TelemetryGraphWidget - Gráficos em tempo real ⭐ NOVO
 
 ### Sistemas Profissionais
 - ✅ Auto-Update System
