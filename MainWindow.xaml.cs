@@ -42,6 +42,9 @@ namespace RaceLabsOverlay
             RelativeWidget.Update(data);
             TrackMapWidget.Update(data);
             MinimapWidget.Update(data);
+            DeltaWidget.Update(data);
+            GhostWidget.Update(data);
+            GraphWidget.Update(data);
         }
 
         protected override void OnClosing(System.ComponentModel.CancelEventArgs e)
