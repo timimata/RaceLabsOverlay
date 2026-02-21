@@ -34,7 +34,7 @@
             <TextBlock x:Name="NotificationText"
                       Text="Welcome"
                       Foreground="White"
-                      FontSize="14">
+                      FontSize="14"/>
         </Border>
     </Grid>
 </Window>

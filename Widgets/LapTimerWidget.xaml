@@ -24,7 +24,7 @@
                       FontSize="36"
                       FontWeight="Bold"
                       Foreground="White"
-                      HorizontalAlignment="Center">
+                      HorizontalAlignment="Center"/>
             
             <!-- Last Lap -->
             <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,5,0,0">

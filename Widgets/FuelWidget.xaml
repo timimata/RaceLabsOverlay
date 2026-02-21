@@ -16,7 +16,7 @@
             <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center">
                 <TextBlock x:Name="FuelText" Text="45.2" 
                           FontSize="28" FontWeight="Bold" Foreground="White"/>
-                <TextBlock Text=" L" FontSize="14" Forecolor="#888888" 
+                <TextBlock Text=" L" FontSize="14" Foreground="#888888" 
                           VerticalAlignment="Bottom" Margin="2,0,0,5"/>
             </StackPanel>
             
