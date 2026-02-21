@@ -29,7 +29,14 @@ namespace RaceLabsOverlay
         private void Timer_Tick(object? sender, System.EventArgs e)
         {
             var data = _telemetry.GetData();
+            
+            // Update all widgets
             SpeedWidget.UpdateSpeed(data.Speed);
+            RPMWidget.Update(data);
+            LapWidget.Update(data);
+            FuelWidget.Update(data);
+            InputsWidget.Update(data);
+            TireWidget.Update(data);
         }
 
         protected override void OnClosing(System.ComponentModel.CancelEventArgs e)

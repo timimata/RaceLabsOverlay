@@ -3,27 +3,42 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:widgets="clr-namespace:RaceLabsOverlay.Widgets"
         Title="RaceLabs Overlay"
-        Height="400"
-        Width="600"
+        Height="600"
+        Width="800"
         WindowStartupLocation="CenterScreen"
         Background="#0A0A0A">
     <Grid>
-        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
-            <TextBlock Text="🏎️ RaceLabs Overlay" 
-                      FontSize="28" 
-                      FontWeight="Bold"
-                      Foreground="LimeGreen"
-                      HorizontalAlignment="Center"
-                      Margin="0,0,0,20"/>
-            
-            <widgets:SpeedometerWidget x:Name="SpeedWidget"/>
-            
-            <TextBlock x:Name="StatusText"
-                      Text="Running..." 
-                      FontSize="12" 
-                      Foreground="#888888"
-                      HorizontalAlignment="Center"
-                      Margin="0,20,0,0"/>
-        </StackPanel>
+        <ScrollViewer VerticalScrollBarVisibility="Auto">
+            <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="20">
+                
+                <TextBlock Text="🏎️ RaceLabs Overlay" 
+                          FontSize="28" 
+                          FontWeight="Bold"
+                          Foreground="LimeGreen"
+                          HorizontalAlignment="Center"
+                          Margin="0,0,0,20"
+                          Width="760"
+                          TextAlignment="Center"/>
+                
+                <!-- Row 1: Speed + RPM + Lap Timer -->
+                <widgets:SpeedometerWidget x:Name="SpeedWidget" Margin="10"/>
+                <widgets:RPMGaugeWidget x:Name="RPMWidget" Margin="10"/>
+                <widgets:LapTimerWidget x:Name="LapWidget" Margin="10"/>
+                
+                <!-- Row 2: Fuel + Inputs + Tire Temps -->
+                <widgets:FuelWidget x:Name="FuelWidget" Margin="10"/>
+                <widgets:InputsWidget x:Name="InputsWidget" Margin="10"/>
+                <widgets:TireTempsWidget x:Name="TireWidget" Margin="10"/>
+                
+                <TextBlock x:Name="StatusText"
+                          Text="Running..." 
+                          FontSize="12" 
+                          Foreground="#888888"
+                          HorizontalAlignment="Center"
+                          Margin="0,20,0,0"
+                          Width="760"
+                          TextAlignment="Center"/>
+            </WrapPanel>
+        </ScrollViewer>
     </Grid>
 </Window>

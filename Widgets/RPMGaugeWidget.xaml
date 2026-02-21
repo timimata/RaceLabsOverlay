@@ -1,0 +1,48 @@
+<UserControl x:Class="RaceLabsOverlay.Widgets.RPMGaugeWidget"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             Width="200" Height="200">
+    
+    <Border Background="#1A1A1A" BorderBrush="#333333" BorderThickness="1" CornerRadius="8">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            
+            <!-- RPM Gauge Arc -->
+            <Path x:Name="GaugeArc" 
+                  Grid.Row="0"
+                  Stroke="LimeGreen" 
+                  StrokeThickness="8"
+                  HorizontalAlignment="Center"
+                  VerticalAlignment="Center"
+                  Margin="10">
+                <Path.Data>
+                    <PathGeometry>
+                        <PathFigure StartPoint="20,140" IsClosed="False">
+                            <ArcSegment Point="180,140" Size="80,80" SweepDirection="Clockwise"/>
+                        </PathFigure>
+                    </PathGeometry>
+                </Path.Data>
+            </Path>
+            
+            <!-- RPM Text -->
+            <TextBlock x:Name="RPMText"
+                      Grid.Row="1"
+                      Text="0"
+                      FontSize="48"
+                      FontWeight="Bold"
+                      Foreground="White"
+                      HorizontalAlignment="Center"/>
+            
+            <TextBlock Grid.Row="2"
+                      Text="RPM"
+                      FontSize="14"
+                      Foreground="#888888"
+                      HorizontalAlignment="Center"
+                      Margin="0,0,0,10"/>
+        </Grid>
+    </Border>
+</UserControl>
