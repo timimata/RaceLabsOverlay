@@ -1,0 +1,33 @@
+name: Build Simple
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: windows-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: '8.0.x'
+        
+    - name: Build Main Project Only
+      run: dotnet build RaceLabsOverlay.csproj -c Release -f net8.0-windows
+      
+    - name: Publish
+      if: success()
+      run: dotnet publish RaceLabsOverlay.csproj -c Release -r win-x64 --self-contained -o ./output
+      
+    - name: Upload if successful
+      if: success()
+      uses: actions/upload-artifact@v4
+      with:
+        name: RaceLabsOverlay-EXE
+        path: ./output/
