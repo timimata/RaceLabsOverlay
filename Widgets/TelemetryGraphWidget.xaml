@@ -30,7 +30,7 @@
                     &lt;ColumnDefinition Width="*"/&gt;
                 &lt;/Grid.ColumnDefinitions&gt;
                 
-                &lt;TextBlock Grid.Column="0" Text="SPD" FontSize="8" Forecolor="#888888" 
+                &lt;TextBlock Grid.Column="0" Text="SPD" FontSize="8" Foreground="#888888" 
                           VerticalAlignment="Center" HorizontalAlignment="Center"
                           RenderTransform="{StaticResource Rotate90}"/&gt;
                 

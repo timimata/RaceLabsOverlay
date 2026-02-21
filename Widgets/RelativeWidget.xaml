@@ -48,7 +48,7 @@
                 &lt;/Grid.ColumnDefinitions&gt;
                 
                 &lt;TextBlock x:Name="Position2Text" Grid.Column="0" Text="P2" 
-                          FontSize="12" Forecolor="#00FF00" VerticalAlignment="Center"/&gt;
+                          FontSize="12" Foreground="#00FF00" VerticalAlignment="Center"/&gt;
                 
                 &lt;TextBlock x:Name="Car2Text" Grid.Column="1" Text="YOU" 
                           FontSize="14" FontWeight="Bold" Foreground="#00FF00" VerticalAlignment="Center"/&gt;

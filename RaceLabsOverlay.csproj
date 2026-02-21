@@ -8,7 +8,6 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <ApplicationManifest>app.manifest</ApplicationManifest>
-    <ApplicationIcon>Resources\icon.ico</ApplicationIcon>
     <Version>0.1.0-alpha</Version>
     <AssemblyTitle>RaceLabsOverlay</AssemblyTitle>
     <AssemblyDescription>iRacing Telemetry Overlay</AssemblyDescription>
@@ -46,10 +45,6 @@
 
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Resource Include="Resources\icon.ico" />
   </ItemGroup>
 
 </Project>
