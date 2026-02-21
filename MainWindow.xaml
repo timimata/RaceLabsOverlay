@@ -1,29 +1,29 @@
-<Window x:Class="RaceLabsMinimal.MainWindow"
+<Window x:Class="RaceLabsOverlay.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:widgets="clr-namespace:RaceLabsOverlay.Widgets"
         Title="RaceLabs Overlay"
-        Height="300"
-        Width="500"
-        WindowStartupLocation="CenterScreen">
-    <Grid Background="#1A1A1A">
+        Height="400"
+        Width="600"
+        WindowStartupLocation="CenterScreen"
+        Background="#0A0A0A">
+    <Grid>
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
             <TextBlock Text="🏎️ RaceLabs Overlay" 
-                      FontSize="32" 
+                      FontSize="28" 
                       FontWeight="Bold"
                       Foreground="LimeGreen"
-                      HorizontalAlignment="Center"/>
-            
-            <TextBlock Text="Ready for iRacing!" 
-                      FontSize="18" 
-                      Foreground="White"
                       HorizontalAlignment="Center"
-                      Margin="0,20,0,0"/>
+                      Margin="0,0,0,20"/>
             
-            <TextBlock Text="v1.0.0" 
+            <widgets:SpeedometerWidget x:Name="SpeedWidget"/>
+            
+            <TextBlock x:Name="StatusText"
+                      Text="Running..." 
                       FontSize="12" 
                       Foreground="#888888"
                       HorizontalAlignment="Center"
-                      Margin="0,10,0,0"/>
+                      Margin="0,20,0,0"/>
         </StackPanel>
     </Grid>
 </Window>
