@@ -1,6 +1,6 @@
 using System.Windows;
 
-namespace RaceLabsOverlay
+namespace RaceLabsMinimal
 {
     public partial class App : Application
     {
