@@ -1,0 +1,32 @@
+<UserControl x:Class="RaceLabsOverlay.Widgets.TrackMapWidget"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             Width="200" Height="200">
+    
+    <Border Background="#1A1A1A" BorderBrush="#333333" BorderThickness="1" CornerRadius="8">
+        <Grid>
+            <TextBlock Text="TRACK MAP" 
+                      FontSize="10" Foreground="#888888" 
+                      HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,5,0,0"/>
+            
+            <Canvas x:Name="MapCanvas" Margin="10,20,10,10">
+                <!-- Track outline -->
+                <Path x:Name="TrackPath" 
+                      Stroke="#444444" 
+                      StrokeThickness="3"
+                      Fill="Transparent"
+                      Data="M 50,100 Q 80,50 120,80 T 180,100 T 150,150 T 50,100"/>
+                
+                <!-- Player position -->
+                <Ellipse x:Name="PlayerMarker" 
+                        Width="10" Height="10" 
+                        Fill="LimeGreen"
+                        Canvas.Left="95" Canvas.Top="95"/>
+                
+                <!-- Other cars -->
+                <Ellipse Width="6" Height="6" Fill="#666666" Canvas.Left="120" Canvas.Top="80"/>
+                <Ellipse Width="6" Height="6" Fill="#666666" Canvas.Left="70" Canvas.Top="110"/>
+            </Canvas>
+        </Grid>
+    </Border>
+</UserControl>

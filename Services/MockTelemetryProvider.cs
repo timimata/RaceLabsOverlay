@@ -21,6 +21,7 @@ namespace RaceLabsOverlay.Services
                 LapCurrentLapTime = _random.Next(80, 120),
                 LapLastLapTime = _random.Next(80, 120),
                 LapBestLapTime = _random.Next(75, 100),
+                LapDistPct = (float)_random.NextDouble(),
                 
                 // Fuel
                 FuelLevel = (float)(_random.NextDouble() * 60),

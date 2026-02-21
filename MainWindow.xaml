@@ -30,6 +30,15 @@
                 <widgets:InputsWidget x:Name="InputsWidget" Margin="10"/>
                 <widgets:TireTempsWidget x:Name="TireWidget" Margin="10"/>
                 
+                <!-- Row 3: Standings + Sector Times + Relative -->
+                <widgets:StandingsWidget x:Name="StandingsWidget" Margin="10"/>
+                <widgets:SectorTimesWidget x:Name="SectorWidget" Margin="10"/>
+                <widgets:RelativeWidget x:Name="RelativeWidget" Margin="10"/>
+                
+                <!-- Row 4: Track Map + Minimap -->
+                <widgets:TrackMapWidget x:Name="TrackMapWidget" Margin="10"/>
+                <widgets:MinimapWidget x:Name="MinimapWidget" Margin="10"/>
+                
                 <TextBlock x:Name="StatusText"
                           Text="Running..." 
                           FontSize="12" 

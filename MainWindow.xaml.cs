@@ -37,6 +37,11 @@ namespace RaceLabsOverlay
             FuelWidget.Update(data);
             InputsWidget.Update(data);
             TireWidget.Update(data);
+            StandingsWidget.Update(data);
+            SectorWidget.Update(data);
+            RelativeWidget.Update(data);
+            TrackMapWidget.Update(data);
+            MinimapWidget.Update(data);
         }
 
         protected override void OnClosing(System.ComponentModel.CancelEventArgs e)

@@ -17,6 +17,7 @@ namespace RaceLabsOverlay.Services
         public float LapCurrentLapTime { get; set; }
         public float LapLastLapTime { get; set; }
         public float LapBestLapTime { get; set; }
+        public float LapDistPct { get; set; }  // % da volta completa
         
         // Fuel
         public float FuelLevel { get; set; }
