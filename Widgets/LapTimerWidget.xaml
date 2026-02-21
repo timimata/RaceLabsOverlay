@@ -1,42 +1,42 @@
-&lt;UserControl x:Class="RaceLabsOverlay.Widgets.LapTimerWidget"
+<UserControl x:Class="RaceLabsOverlay.Widgets.LapTimerWidget"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             Width="220" Height="150"&gt;
+             Width="220" Height="150">
     
-    &lt;Border Style="{StaticResource WidgetBaseStyle}"&gt;
-        &lt;Grid&gt;
-            &lt;Grid.RowDefinitions&gt;
-                &lt;RowDefinition Height="Auto"/&gt;
-                &lt;RowDefinition Height="Auto"/&gt;
-                &lt;RowDefinition Height="Auto"/&gt;
-                &lt;RowDefinition Height="Auto"/&gt;
-            &lt;/Grid.RowDefinitions&gt;
+    <Border Style="{StaticResource WidgetBaseStyle}">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
             
-            &lt;!-- Current Lap Time --&gt;
-            &lt;StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center"&gt;
-                &lt;TextBlock Text="LAP " FontSize="12" Foreground="#888888" VerticalAlignment="Bottom"/&gt;
-                &lt;TextBlock x:Name="LapNumberText" Text="1" FontSize="12" Foreground="White" VerticalAlignment="Bottom" Margin="5,0,0,0"/&gt;
-            &lt;/StackPanel&gt;
+            <!-- Current Lap Time -->
+            <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center">
+                <TextBlock Text="LAP " FontSize="12" Foreground="#888888" VerticalAlignment="Bottom"/>
+                <TextBlock x:Name="LapNumberText" Text="1" FontSize="12" Foreground="White" VerticalAlignment="Bottom" Margin="5,0,0,0"/>
+            </StackPanel>
             
-            &lt;TextBlock x:Name="CurrentLapText"
+            <TextBlock x:Name="CurrentLapText"
                       Grid.Row="1"
                       Text="1:23.456"
                       FontSize="36"
                       FontWeight="Bold"
                       Foreground="White"
-                      HorizontalAlignment="Center"&gt;
+                      HorizontalAlignment="Center">
             
-            &lt;!-- Last Lap --&gt;
-            &lt;StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,5,0,0"&gt;
-                &lt;TextBlock Text="Last: " FontSize="12" Foreground="#888888"/&gt;
-                &lt;TextBlock x:Name="LastLapText" Text="1:24.123" FontSize="12" Foreground="#AAAAAA"/&gt;
-            &lt;/StackPanel&gt;
+            <!-- Last Lap -->
+            <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,5,0,0">
+                <TextBlock Text="Last: " FontSize="12" Foreground="#888888"/>
+                <TextBlock x:Name="LastLapText" Text="1:24.123" FontSize="12" Foreground="#AAAAAA"/>
+            </StackPanel>
             
-            &lt;!-- Best Lap --&gt;
-            &lt;StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,2,0,0"&gt;
-                &lt;TextBlock Text="Best: " FontSize="12" Foreground="#888888"/&gt;
-                &lt;TextBlock x:Name="BestLapText" Text="1:22.890" FontSize="12" Foreground="#AA66FF" FontWeight="Bold"/&gt;
-            &lt;/StackPanel&gt;
-        &lt;/Grid&gt;
-    &lt;/Border&gt;
-&lt;/UserControl&gt;
+            <!-- Best Lap -->
+            <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,2,0,0">
+                <TextBlock Text="Best: " FontSize="12" Foreground="#888888"/>
+                <TextBlock x:Name="BestLapText" Text="1:22.890" FontSize="12" Foreground="#AA66FF" FontWeight="Bold"/>
+            </StackPanel>
+        </Grid>
+    </Border>
+</UserControl>

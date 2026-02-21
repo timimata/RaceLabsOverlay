@@ -1,11 +1,11 @@
-&lt;Application x:Class="RaceLabsOverlay.App"
+<Application x:Class="RaceLabsOverlay.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"&gt;
-    &lt;Application.Resources&gt;
-        &lt;ResourceDictionary&gt;
-            &lt;ResourceDictionary.MergedDictionaries&gt;
-                &lt;ResourceDictionary Source="UI/Themes/RaceLabsTheme.xaml"/&gt;
-            &lt;/ResourceDictionary.MergedDictionaries&gt;
-        &lt;/ResourceDictionary&gt;
-    &lt;/Application.Resources&gt;
-&lt;/Application&gt;
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="UI/Themes/RaceLabsTheme.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

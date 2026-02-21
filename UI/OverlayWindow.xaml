@@ -1,4 +1,4 @@
-&lt;Window x:Class="RaceLabsOverlay.UI.OverlayWindow"
+<Window x:Class="RaceLabsOverlay.UI.OverlayWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="RaceLabs Overlay"
@@ -12,16 +12,16 @@
         Height="1080"
         WindowStartupLocation="Manual"
         Left="0"
-        Top="0"&gt;
+        Top="0">
     
-    &lt;Grid&gt;
-        &lt;!-- Canvas para os widgets --&gt;
-        &lt;Canvas x:Name="WidgetsCanvas" 
-                Background="Transparent"&gt;
-        &lt;/Canvas&gt;
+    <Grid>
+        <!-- Canvas para os widgets -->
+        <Canvas x:Name="WidgetsCanvas" 
+                Background="Transparent">
+        </Canvas>
         
-        &lt;!-- Notificação flutuante --&gt;
-        &lt;Border x:Name="NotificationBorder"
+        <!-- Notificação flutuante -->
+        <Border x:Name="NotificationBorder"
                 Background="#CC000000"
                 BorderBrush="#444444"
                 BorderThickness="1"
@@ -30,11 +30,11 @@
                 HorizontalAlignment="Center"
                 VerticalAlignment="Top"
                 Margin="0,20,0,0"
-                Visibility="Collapsed"&gt;
-            &lt;TextBlock x:Name="NotificationText"
+                Visibility="Collapsed">
+            <TextBlock x:Name="NotificationText"
                       Text="Welcome"
                       Foreground="White"
-                      FontSize="14"&gt;
-        &lt;/Border&gt;
-    &lt;/Grid&gt;
-&lt;/Window&gt;
+                      FontSize="14">
+        </Border>
+    </Grid>
+</Window>
