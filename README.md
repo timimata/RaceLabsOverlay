@@ -2,8 +2,9 @@
 
 **Professional iRacing Telemetry Overlay** - Grátis e Open Source
 
+[![Build](https://github.com/timimata/RaceLabsOverlay/actions/workflows/build-and-release.yml/badge.svg)](https://github.com/timimata/RaceLabsOverlay/actions/workflows/build-and-release.yml)
 [![Download](https://img.shields.io/badge/Download-Latest-brightgreen?style=for-the-badge)](https://github.com/timimata/RaceLabsOverlay/releases)
-[![Version](https://img.shields.io/badge/Version-0.1.0-blue?style=for-the-badge)]()
+[![Version](https://img.shields.io/badge/Version-0.1.0--alpha-blue?style=for-the-badge)]()
 [![License](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)]()
 
 ---
