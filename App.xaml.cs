@@ -1,6 +1,9 @@
 using System;
+using System.Drawing;
 using System.Threading;
 using System.Windows;
+using System.Windows.Controls;
+using Hardcodet.Wpf.TaskbarNotification;
 using RaceLabsOverlay.Core.Telemetry;
 using RaceLabsOverlay.Services;
 using RaceLabsOverlay.UI;
@@ -14,6 +17,8 @@ namespace RaceLabsOverlay
         private UpdateService? _updateService;
         private SettingsService? _settingsService;
         private CancellationTokenSource? _appCts;
+        private TaskbarIcon? _trayIcon;
+        private WidgetPanelWindow? _widgetPanel;
 
         protected override void OnStartup(StartupEventArgs e)
         {
@@ -28,10 +33,16 @@ namespace RaceLabsOverlay
                 _settingsService = new SettingsService();
                 LoggingService.LogInformation("Settings loaded");
 
-                // Create overlay window
-                _overlayWindow = new OverlayWindow();
+                _overlayWindow = new OverlayWindow(_settingsService);
 
-                // Initialize iRacing telemetry provider
+                // Widget panel (opened from tray or Ctrl+Shift+W)
+                _widgetPanel = new WidgetPanelWindow(_overlayWindow.WidgetManager, _overlayWindow);
+                _overlayWindow.OnOpenWidgetPanel += () => _widgetPanel.Show();
+
+                // System tray icon
+                SetupTrayIcon();
+
+                // iRacing telemetry
                 _telemetryProvider = new IRacingProvider();
 
                 _telemetryProvider.OnConnected += (s, _) =>
@@ -46,22 +57,17 @@ namespace RaceLabsOverlay
                     Dispatcher.Invoke(() => _overlayWindow.ShowConnectionStatus(false));
                 };
 
-                // Wire real telemetry data to overlay widgets
                 _telemetryProvider.OnTelemetryUpdated += (s, data) =>
                 {
                     Dispatcher.Invoke(() => _overlayWindow.UpdateTelemetry(data));
                 };
 
-                // Start telemetry polling in background
                 _appCts = new CancellationTokenSource();
                 _ = _telemetryProvider.StartAsync(_appCts.Token);
                 LoggingService.LogInformation("Telemetry provider started, waiting for iRacing...");
 
-                // Initialize update service
-                _updateService = new UpdateService(
-                    AppVersion.Current,
-                    "https://updates.racelabs.app");
-
+                // Update service
+                _updateService = new UpdateService(AppVersion.Current, "https://updates.racelabs.app");
                 _updateService.OnUpdateAvailable += (s, args) =>
                 {
                     Dispatcher.Invoke(() =>
@@ -73,12 +79,10 @@ namespace RaceLabsOverlay
                         }
                     });
                 };
-
                 _updateService.OnUpdateError += (s, error) =>
                 {
                     LoggingService.LogError($"Update error: {error}");
                 };
-
                 if (_settingsService.Settings.CheckForUpdatesOnStartup)
                 {
                     _ = _updateService.CheckOnStartupAsync();
@@ -99,12 +103,46 @@ namespace RaceLabsOverlay
             }
         }
 
+        private void SetupTrayIcon()
+        {
+            _trayIcon = new TaskbarIcon
+            {
+                Icon = SystemIcons.Application,
+                ToolTipText = "RaceLabs Overlay"
+            };
+
+            var contextMenu = new ContextMenu
+            {
+                Background = System.Windows.Media.Brushes.Black,
+                Foreground = System.Windows.Media.Brushes.White
+            };
+
+            var widgetsItem = new MenuItem { Header = "Widgets" };
+            widgetsItem.Click += (s, e) => _widgetPanel?.Show();
+            contextMenu.Items.Add(widgetsItem);
+
+            var editItem = new MenuItem { Header = "Edit Mode" };
+            editItem.Click += (s, e) => _overlayWindow?.ToggleEditModePublic();
+            contextMenu.Items.Add(editItem);
+
+            contextMenu.Items.Add(new Separator());
+
+            var exitItem = new MenuItem { Header = "Exit" };
+            exitItem.Click += (s, e) => Shutdown();
+            contextMenu.Items.Add(exitItem);
+
+            _trayIcon.ContextMenu = contextMenu;
+            _trayIcon.TrayMouseDoubleClick += (s, e) => _widgetPanel?.Show();
+        }
+
         protected override void OnExit(ExitEventArgs e)
         {
             LoggingService.LogInformation("=== RaceLabs Overlay Shutting Down ===");
 
+            _overlayWindow?.WidgetManager.SaveLayout();
             _appCts?.Cancel();
             _telemetryProvider?.Dispose();
+            _trayIcon?.Dispose();
 
             LoggingService.LogInformation($"=== RaceLabs Overlay Exited (Code: {e.ApplicationExitCode}) ===");
             base.OnExit(e);

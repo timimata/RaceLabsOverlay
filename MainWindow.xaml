@@ -30,16 +30,8 @@
                 <widgets:InputsWidget x:Name="InputsWidget" Margin="10"/>
                 <widgets:TireTempsWidget x:Name="TireWidget" Margin="10"/>
 
-                <!-- Row 3: Standings + Sector Times + Relative -->
-                <widgets:StandingsWidget x:Name="StandingsWidget" Margin="10"/>
-                <widgets:SectorTimesWidget x:Name="SectorWidget" Margin="10"/>
-                <widgets:RelativeWidget x:Name="RelativeWidget" Margin="10"/>
-
-                <!-- Row 4: Track Map + Minimap -->
+                <!-- Row 3: Track Map + Delta + Ghost + Telemetry Graph -->
                 <widgets:TrackMapWidget x:Name="TrackMapWidget" Margin="10"/>
-                <widgets:MinimapWidget x:Name="MinimapWidget" Margin="10"/>
-
-                <!-- Row 5: Delta + Ghost + Telemetry Graph -->
                 <widgets:DeltaBarWidget x:Name="DeltaWidget" Margin="10"/>
                 <widgets:GhostComparatorWidget x:Name="GhostWidget" Margin="10"/>
                 <widgets:TelemetryGraphWidget x:Name="GraphWidget" Margin="10"/>

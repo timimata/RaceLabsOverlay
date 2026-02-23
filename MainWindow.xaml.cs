@@ -4,10 +4,6 @@ using RaceLabsOverlay.Services;
 
 namespace RaceLabsOverlay
 {
-    /// <summary>
-    /// Test window that displays all widgets with mock telemetry data.
-    /// Use this to test widgets without iRacing running.
-    /// </summary>
     public partial class MainWindow : Window
     {
         private readonly MockTelemetryProvider _mockProvider;
@@ -19,7 +15,6 @@ namespace RaceLabsOverlay
 
             _mockProvider = new MockTelemetryProvider();
 
-            // Timer to update widgets at 10Hz
             _timer = new DispatcherTimer
             {
                 Interval = System.TimeSpan.FromMilliseconds(100)
@@ -32,18 +27,13 @@ namespace RaceLabsOverlay
         {
             var data = GenerateMockData();
 
-            // Update all widgets
             SpeedWidget.Update(data);
             RPMWidget.Update(data);
             LapWidget.Update(data);
             FuelWidget.Update(data);
             InputsWidget.Update(data);
             TireWidget.Update(data);
-            StandingsWidget.Update(data);
-            SectorWidget.Update(data);
-            RelativeWidget.Update(data);
             TrackMapWidget.Update(data);
-            MinimapWidget.Update(data);
             DeltaWidget.Update(data);
             GhostWidget.Update(data);
             GraphWidget.Update(data);

@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Text.Json;
 
@@ -119,7 +120,18 @@ namespace RaceLabsOverlay.Services
         public double WindowWidth { get; set; } = 1920;
         public double WindowHeight { get; set; } = 1080;
         
+        // Widget Layouts
+        public List<WidgetLayoutEntry> WidgetLayouts { get; set; } = new();
+
         // Custom
         public Dictionary<string, string> CustomSettings { get; set; } = new();
+    }
+
+    public class WidgetLayoutEntry
+    {
+        public string WidgetName { get; set; } = "";
+        public bool IsVisible { get; set; } = true;
+        public double X { get; set; }
+        public double Y { get; set; }
     }
 }
