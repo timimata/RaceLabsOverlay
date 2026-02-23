@@ -66,7 +66,9 @@ namespace RaceLabsOverlay
         public float FuelLevel { get; set; }
         public float FuelLevelPct { get; set; }
         public float FuelUsePerHour { get; set; }
-        
+        public float FuelLapsRemaining { get; set; }
+        public float FuelPerLap { get; set; }
+
         // Position
         public double PositionX { get; set; }
         public double PositionY { get; set; }
@@ -79,6 +81,14 @@ namespace RaceLabsOverlay
         // Computed Properties
         public float TireTempLFAvg => (TireTempLFInner + TireTempLFMiddle + TireTempLFOuter) / 3f;
         public float TireTempRFAvg => (TireTempRFInner + TireTempRFMiddle + TireTempRFOuter) / 3f;
+        public float TireTempLRAvg => (TireTempLRInner + TireTempLRMiddle + TireTempLROuter) / 3f;
+        public float TireTempRRAvg => (TireTempRRInner + TireTempRRMiddle + TireTempRROuter) / 3f;
+
+        // Simple tire temp aliases (average of inner/middle/outer)
+        public float TireTempLF => TireTempLFAvg;
+        public float TireTempRF => TireTempRFAvg;
+        public float TireTempLR => TireTempLRAvg;
+        public float TireTempRR => TireTempRRAvg;
     }
 
     /// <summary>

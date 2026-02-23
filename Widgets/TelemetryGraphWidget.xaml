@@ -1,0 +1,52 @@
+<UserControl x:Class="RaceLabsOverlay.Widgets.TelemetryGraphWidget"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             Width="500" Height="200">
+
+    <Border Background="#1A1A1A" BorderBrush="#333333" BorderThickness="1" CornerRadius="8">
+        <Grid Margin="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,5">
+                <TextBlock Text="TELEMETRY" FontSize="10" Foreground="#888888" Margin="0,0,10,0"/>
+                <TextBlock x:Name="CurrentSpeedText" Text="0 km/h" FontSize="11" Foreground="LimeGreen" FontWeight="Bold"/>
+                <TextBlock Text=" &#x2022; " Foreground="#555"/>
+                <TextBlock x:Name="CurrentRpmText" Text="0 RPM" FontSize="11" Foreground="Orange" FontWeight="Bold"/>
+                <TextBlock Text=" &#x2022; " Foreground="#555"/>
+                <TextBlock x:Name="CurrentGearText" Text="Gear N" FontSize="11" Foreground="White" FontWeight="Bold"/>
+            </StackPanel>
+
+            <Border Grid.Row="1" Background="#0D0D0D" CornerRadius="4" Margin="0,2">
+                <Grid>
+                    <TextBlock Text="SPD" FontSize="8" Foreground="#888888"
+                              VerticalAlignment="Center" HorizontalAlignment="Left" Margin="5,0">
+                        <TextBlock.RenderTransform>
+                            <RotateTransform Angle="-90"/>
+                        </TextBlock.RenderTransform>
+                    </TextBlock>
+                    <Polyline x:Name="SpeedLine" Stroke="LimeGreen" StrokeThickness="2"
+                              Margin="25,5,5,5"/>
+                </Grid>
+            </Border>
+
+            <Border Grid.Row="2" Background="#0D0D0D" CornerRadius="4" Margin="0,2">
+                <Grid>
+                    <TextBlock Text="THR" FontSize="8" Foreground="#888888"
+                              VerticalAlignment="Center" HorizontalAlignment="Left" Margin="5,0">
+                        <TextBlock.RenderTransform>
+                            <RotateTransform Angle="-90"/>
+                        </TextBlock.RenderTransform>
+                    </TextBlock>
+                    <Polyline x:Name="ThrottleLine" Stroke="LimeGreen" StrokeThickness="2"
+                              Margin="25,5,5,5"/>
+                    <Polyline x:Name="BrakeLine" Stroke="Red" StrokeThickness="2"
+                              Margin="25,5,5,5"/>
+                </Grid>
+            </Border>
+        </Grid>
+    </Border>
+</UserControl>

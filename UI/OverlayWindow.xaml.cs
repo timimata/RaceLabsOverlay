@@ -135,6 +135,30 @@ namespace RaceLabsOverlay.UI
             // Track Map - direita centro
             var trackMap = new Widgets.TrackMapWidget();
             _widgetManager.AddWidget(trackMap, new Point(Width - 220, Height / 2 - 100));
+
+            // Ghost Comparator - centro
+            var ghost = new Widgets.GhostComparatorWidget();
+            _widgetManager.AddWidget(ghost, new Point(Width / 2 - 200, 120));
+
+            // Standings - topo esquerdo abaixo do fuel
+            var standings = new Widgets.StandingsWidget();
+            _widgetManager.AddWidget(standings, new Point(20, 160));
+
+            // Sector Times - topo centro-esquerdo
+            var sectors = new Widgets.SectorTimesWidget();
+            _widgetManager.AddWidget(sectors, new Point(220, 20));
+
+            // Relative - esquerda abaixo standings
+            var relative = new Widgets.RelativeWidget();
+            _widgetManager.AddWidget(relative, new Point(20, 300));
+
+            // Minimap - direita abaixo track map
+            var minimap = new Widgets.MinimapWidget();
+            _widgetManager.AddWidget(minimap, new Point(Width - 220, Height / 2 + 120));
+
+            // Telemetry Graph - centro baixo
+            var graph = new Widgets.TelemetryGraphWidget();
+            _widgetManager.AddWidget(graph, new Point(Width / 2 - 250, Height - 280));
         }
 
         private void OverlayWindow_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
