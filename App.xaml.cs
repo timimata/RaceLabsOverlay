@@ -26,9 +26,7 @@ namespace RaceLabsOverlay
                 _settingsService = new SettingsService();
                 LoggingService.LogInformation("Settings loaded");
 
-                // Create main window
-                var mainWindow = new OverlayWindow();
-
+                // OverlayWindow is created by StartupUri in App.xaml
                 // Initialize update service
                 _updateService = new UpdateService(
                     AppVersion.Current,
@@ -38,7 +36,6 @@ namespace RaceLabsOverlay
                 {
                     Dispatcher.Invoke(() =>
                     {
-                        // Check if version was skipped
                         if (args.UpdateInfo.Version != _settingsService.Settings.SkippedVersion)
                         {
                             var dialog = new UpdateDialog(args.UpdateInfo, _updateService);
@@ -52,13 +49,10 @@ namespace RaceLabsOverlay
                     LoggingService.LogError($"Update error: {error}");
                 };
 
-                // Check for updates on startup
                 if (_settingsService.Settings.CheckForUpdatesOnStartup)
                 {
                     _ = _updateService.CheckOnStartupAsync();
                 }
-
-                mainWindow.Show();
 
                 LoggingService.LogInformation("Application started successfully");
             }
