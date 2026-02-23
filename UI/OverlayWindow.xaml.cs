@@ -242,5 +242,17 @@ namespace RaceLabsOverlay.UI
         {
             _widgetManager.UpdateAllWidgets(data);
         }
+
+        public void ShowConnectionStatus(bool connected)
+        {
+            if (connected)
+            {
+                ShowNotification("iRacing CONNECTED - Live telemetry active");
+            }
+            else
+            {
+                ShowNotification("iRacing DISCONNECTED - Waiting for connection...");
+            }
+        }
     }
 }

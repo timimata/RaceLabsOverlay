@@ -14,6 +14,13 @@ namespace RaceLabsOverlay.Core.Telemetry
         private CancellationTokenSource? _cts;
         private Task? _pollingTask;
         private bool _disposed;
+        private bool _wasConnected;
+
+        // Fuel tracking
+        private float _lastFuelLevel = -1;
+        private int _lastLap = -1;
+        private float _fuelPerLap = 0;
+        private float _fuelLapsRemaining = 0;
 
         public bool IsConnected => _sdk.IsConnected();
         public event EventHandler<TelemetryData>? OnTelemetryUpdated;
@@ -25,24 +32,14 @@ namespace RaceLabsOverlay.Core.Telemetry
             _sdk = new IRacingSDK();
         }
 
-        public async Task StartAsync(CancellationToken cancellationToken = default)
+        public Task StartAsync(CancellationToken cancellationToken = default)
         {
             _cts = CancellationTokenSource.CreateLinkedTokenSource(cancellationToken);
-            
-            // Tentar conectar
-            while (!_cts.Token.IsCancellationRequested)
-            {
-                if (_sdk.IsConnected())
-                {
-                    OnConnected?.Invoke(this, EventArgs.Empty);
-                    break;
-                }
-                
-                await Task.Delay(1000, _cts.Token);
-            }
-            
-            // Iniciar polling
+            _wasConnected = false;
+
+            // Start polling immediately - connection handling is inside the loop
             _pollingTask = PollingLoopAsync(_cts.Token);
+            return Task.CompletedTask;
         }
 
         public async Task StopAsync()
@@ -70,25 +67,72 @@ namespace RaceLabsOverlay.Core.Telemetry
                 {
                     if (!_sdk.IsConnected())
                     {
-                        OnDisconnected?.Invoke(this, EventArgs.Empty);
-                        
-                        // Tentar reconectar
+                        if (_wasConnected)
+                        {
+                            _wasConnected = false;
+                            OnDisconnected?.Invoke(this, EventArgs.Empty);
+                        }
+
                         await Task.Delay(2000, ct);
                         continue;
                     }
-                    
+
+                    if (!_wasConnected)
+                    {
+                        _wasConnected = true;
+                        OnConnected?.Invoke(this, EventArgs.Empty);
+                    }
+
                     var data = ReadTelemetryData();
+                    TrackFuelConsumption(data);
                     OnTelemetryUpdated?.Invoke(this, data);
-                    
+
                     // 60 Hz
                     await Task.Delay(16, ct);
                 }
-                catch (Exception ex)
+                catch (OperationCanceledException)
                 {
-                    // Log error
+                    break;
+                }
+                catch (Exception)
+                {
                     await Task.Delay(100, ct);
                 }
             }
+        }
+
+        private void TrackFuelConsumption(TelemetryData data)
+        {
+            // Track fuel per lap when crossing lap boundary
+            if (_lastLap > 0 && data.Lap > _lastLap && _lastFuelLevel > 0)
+            {
+                float fuelUsed = _lastFuelLevel - data.FuelLevel;
+                if (fuelUsed > 0)
+                {
+                    // Smooth average with previous readings
+                    _fuelPerLap = _fuelPerLap > 0
+                        ? (_fuelPerLap * 0.7f + fuelUsed * 0.3f)
+                        : fuelUsed;
+                }
+            }
+
+            _lastLap = data.Lap;
+            _lastFuelLevel = data.FuelLevel;
+
+            // Calculate laps remaining
+            if (_fuelPerLap > 0)
+            {
+                _fuelLapsRemaining = data.FuelLevel / _fuelPerLap;
+            }
+            else if (data.FuelUsePerHour > 0)
+            {
+                // Fallback: estimate from fuel use per hour (assuming ~90s laps)
+                float fuelPerLapEstimate = data.FuelUsePerHour / 3600f * 90f;
+                _fuelLapsRemaining = fuelPerLapEstimate > 0 ? data.FuelLevel / fuelPerLapEstimate : 0;
+            }
+
+            data.FuelPerLap = _fuelPerLap;
+            data.FuelLapsRemaining = _fuelLapsRemaining;
         }
 
         private TelemetryData ReadTelemetryData()

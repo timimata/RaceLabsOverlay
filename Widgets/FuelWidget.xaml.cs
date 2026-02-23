@@ -20,32 +20,31 @@ namespace RaceLabsOverlay.Widgets
             Dispatcher.Invoke(() =>
             {
                 FuelText.Text = $"{data.FuelLevel:F1}";
-                
-                // Barra de percentagem
+
+                // Fuel bar (FuelLevelPct is 0-1 from iRacing)
                 double maxWidth = (FuelBar.Parent as Border)?.ActualWidth ?? 100;
-                FuelBar.Width = maxWidth * (data.FuelLevelPct / 100);
-                
-                // Cor baseada no nível
-                if (data.FuelLevelPct < 10)
+                double pct = data.FuelLevelPct * 100;
+                FuelBar.Width = maxWidth * data.FuelLevelPct;
+
+                // Color based on level
+                if (pct < 10)
                     FuelBar.Fill = Brushes.Red;
-                else if (data.FuelLevelPct < 25)
+                else if (pct < 25)
                     FuelBar.Fill = Brushes.Orange;
                 else
                     FuelBar.Fill = new SolidColorBrush(Color.FromRgb(0, 136, 255));
-                
-                // Calcular voltas restantes
-                if (data.FuelUsePerHour > 0)
-                {
-                    // Assumindo volta de ~90s
-                    float lapsRemaining = data.FuelLevel / (data.FuelUsePerHour / 3600 * 90);
-                    LapsRemainingText.Text = $"{lapsRemaining:F0}";
-                }
+
+                // Laps remaining (calculated by IRacingProvider)
+                if (data.FuelLapsRemaining > 0)
+                    LapsRemainingText.Text = $"{data.FuelLapsRemaining:F1}";
                 else
-                {
-                    LapsRemainingText.Text = "—";
-                }
-                
-                ConsumptionText.Text = $"{data.FuelUsePerHour:F1}";
+                    LapsRemainingText.Text = "---";
+
+                // Fuel per lap
+                if (data.FuelPerLap > 0)
+                    ConsumptionText.Text = $"{data.FuelPerLap:F2}";
+                else
+                    ConsumptionText.Text = "---";
             });
         }
 
